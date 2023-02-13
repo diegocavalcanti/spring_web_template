@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+
+>
+
+<ui:composition template=" ../../WEB-INF/templates/template.xhtml">
+
+
+    <ui:define name="title">
+        Users Edit
+    </ui:define>
+
+
+    <ui:define name="body">
+
+        <h:form id="formUsers" prependId="false">
+            <div class="field">
+                <p:outputLabel for="name" styleClass="block">Nome</p:outputLabel>
+                <p:inputText id="name" styleClass="block"/>
+            </div>
+
+
+            <p:commandButton type="button" value="Submit" icon="pi pi-check" />
+
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+
+>
+
+<ui:composition template=" ../../WEB-INF/templates/template.xhtml">
+
+
+    <ui:define name="title">
+        Home
+    </ui:define>
+
+
+
+
+    <ui:define name="body">
+        <div class="grid">
+            <div class="col-12 lg:col-6 xl:col-4">
+                <div class="card">
+                    <p:pieChart model="#{homeView.pieModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+</html>

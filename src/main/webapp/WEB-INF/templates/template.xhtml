@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+
+    <ui:param name="url" value="#{request.contextPath}"/>
+
+    <h:outputStylesheet library="css" name="template.css"/>
+    <h:outputStylesheet library="css" name="primeflex.css"/>
+
+    <title>
+        <ui:insert name="pageTitle">Demo App</ui:insert>
+    </title>
+
+    <ui:insert name="head"></ui:insert>
+
+    <h:outputScript library="js" name="locale.js"/>
+
+
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+
+
+        <p:toolbar>
+            <p:toolbarGroup>
+                <div class="p-2">
+                    <h:graphicImage value="/img/logo.png" height="64" width="64"/>
+                </div>
+
+
+                <div class="text-primary text-xl font-bold" >Aplication Name</div>
+            </p:toolbarGroup>
+
+            <p:toolbarGroup align="right">
+
+                <div class="p-2">
+                    <span class="text-lg font-bold"> Versão: </span>
+                    <span class="text-base "> 1.0.0 </span><br/>
+                    <span class="text-lg font-bold"> Ambiente: </span>
+                    <span class="text-base "> HML </span> <br/>
+                </div>
+
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" action="#{templateView.save}" update="messages" icon="pi pi-save"/>
+                    <p:menuitem value="Update" action="#{templateView.update}" update="messages"
+                                icon="pi pi-refresh"/>
+                    <p:menuitem value="Delete" action="#{templateView.delete}" ajax="false" icon="pi pi-times"/>
+                </p:menuButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+    </h:form>
+
+
+    <p:outputPanel>
+
+
+        <h:form>
+            <p:ajaxStatus onstart="PF('statusDialog').show();"
+                          onsuccess="PF('statusDialog').hide()"/>
+            <p:dialog modal="true" widgetVar="statusDialog" header="Status"
+                      draggable="false" closable="false" showHeader="false"
+                      resizable="false">
+                <p:graphicImage value="/img/loading.gif"/>
+
+            </p:dialog>
+        </h:form>
+
+        <h:form>
+
+
+            <p:menubar styleClass="menu">
+
+                <p:menuitem value="Home" icon=" ui-icon-gear" outcome="/pages/home/index"/>
+
+                <p:menuitem value="Users" icon="ui-icon-pencil" outcome="/pages/users/users_list"/>
+
+                <p:menuitem value="Exit" immediate="true" ajax="false" icon="ui-icon-close">
+
+                </p:menuitem>
+            </p:menubar>
+        </h:form>
+
+        <div class="text-4xl border-bottom-1 surface-border m-4">  <ui:insert name="title">Title</ui:insert> </div>
+
+        <div class="m-4">
+           <ui:insert name="body">Body</ui:insert>
+        </div>
+
+
+    </p:outputPanel>
+</h:body>
+</html>

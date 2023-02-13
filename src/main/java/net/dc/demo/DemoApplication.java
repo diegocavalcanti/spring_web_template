@@ -26,7 +26,7 @@ public class DemoApplication {
 	public ServletRegistrationBean facesServletRegistration() {
 		ServletRegistrationBean registration = new ServletRegistrationBean<>(new FacesServlet(), "*.xhtml");
 		registration.setLoadOnStartup(1);
-		registration.addUrlMappings("*.jr");
+		//registration.addUrlMappings("*.jr");
 		return registration;
 	}
 
@@ -34,7 +34,17 @@ public class DemoApplication {
 	public ServletContextInitializer servletContextInitializer() {
 		return servletContext -> {
 			servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
-			servletContext.setInitParameter("primefaces.THEME", "redmond");
+			//servletContext.setInitParameter("primefaces.THEME", "cupertino");
+			servletContext.setInitParameter("primefaces.MOVE_SCRIPTS_TO_BOTTOM", Boolean.FALSE.toString());
+			servletContext.setInitParameter("primefaces.FONT_AWESOME", Boolean.TRUE.toString());
+			servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
+			servletContext.setInitParameter("javax.faces.DEFAULT_SUFFIX", ".xhtml");
+			servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
+			servletContext.setInitParameter("javax.faces.STATE_SAVING_METHOD", "server");
+			//servletContext.setInitParameter("javax.faces.FACELETS_REFRESH_PERIOD", "-1");
+			servletContext.setInitParameter("javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL", Boolean.TRUE.toString());
+			servletContext.setInitParameter("javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE", Boolean.TRUE.toString());
+
 		};
 	}
 
